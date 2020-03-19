@@ -9,7 +9,14 @@ const routes = [
   {
     path: '/',
     name: 'login',
-    component: login
+    component: login,
+    // beforeEnter(to, from, next) {
+    //   if (!localStorage.token) {
+    //     next();
+    //   } else {
+    //     next({ name: 'lobby' });
+    //   }
+    // }
   },
   {
     path: '/about',

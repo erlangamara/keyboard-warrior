@@ -8,6 +8,7 @@ router.post('/users/login', controller.login)
 router.get('/randomwords',controller.getWords)
 router.use(authentication)
 router.post('/user/attack/:id', attackAuthorization, controller.attack)
+router.post(`/users/logout`, controller.updateRoomId)
 
 
 

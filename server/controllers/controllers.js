@@ -1,6 +1,7 @@
 const { User } = require(`../models`)
 const axios = require('axios')
 const jwt = require(`../helper/jsonwebtoken`)
+const createError = require(`http-errors`)
 
 class UserController{
     static login(req, res, next) {
@@ -77,6 +78,27 @@ class UserController{
             .catch(err=>{
                 next(err)
             })
+    }
+
+    static updateRoomId(req, res, next){
+        let { roomId } = req.body
+
+        User.update({
+            roomId
+        },
+        {
+            where: {
+                id: req.user.id
+            }
+        })
+            .then(data => {
+                if(data) {
+                    res.status(200).json(data)
+                } else {
+                    throw createError(404, `User not found, fail to update`)
+                }
+            })
+            .catch(next)
     }
 }
 

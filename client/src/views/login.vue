@@ -34,8 +34,10 @@ export default {
             }
         })
         .then(({ data }) => {
-            localStorage.token = data.token
+            this.$store.state.token = localStorage.token = data.token
             // this.$router.push({ name: 'room' })
+            // this is for testing while there is no "next" page
+            this.$router.push('main')
         })
         .catch(err => {
             console.log(err.response)
@@ -47,6 +49,7 @@ export default {
 
 <style scoped>
 .forms {
+    padding-top: 3em;
     height: 100vh;
 }
 
