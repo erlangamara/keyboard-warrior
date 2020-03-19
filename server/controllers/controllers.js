@@ -12,14 +12,17 @@ class UserController{
             }
         })
             .then(data => {
-                if (data) {
+                if (data && data.roomId === 1) {
                     return data
-                } else {
+                } else if (!data) {
                     return User.create({
                         name,
                         hp: 100,
                         isAnswer: false,
+                        roomId: 1
                     })
+                } else {
+                    throw createError(403, `Username is under use`)
                 }
             })
             .then(data => {
