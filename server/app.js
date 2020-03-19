@@ -12,6 +12,11 @@ io.on('connection', (socket) => {
         socket.broadcast.emit('attacked', message)
     })
 
+    socket.on('notify enemy',(name)=>{
+      console.log('player read :',name)
+      socket.broadcast.emit('announce', name)
+    })
+
 })
 
 app.use(express.json());

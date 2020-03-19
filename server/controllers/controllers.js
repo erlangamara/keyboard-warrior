@@ -53,7 +53,7 @@ class UserController {
                 })
 
                 res.status(200).json({
-                    token
+                    token, 'name':data.name
                 })
             })
             .catch(next)
@@ -159,6 +159,25 @@ class UserController {
             .catch(err=>{
                 next(err)
             })
+    }
+
+    static refillHealth(req,res,next){
+      User.findOne({
+        where: {
+            id: req.user.id
+        }
+      })
+      .then(data=>{
+        return User.update({
+          hp:100
+        },{where:{id:req.user.id}})
+      })
+      .then(data=>{
+        res.status(200).json(data)
+      })
+      .catch(err=>{
+        next(err)
+      })
     }
 }
 

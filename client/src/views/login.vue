@@ -36,9 +36,12 @@ export default {
       })
         .then(({ data }) => {
           this.$store.state.token = localStorage.token = data.token;
+          localStorage.setItem('name', data.name)
           // this.$router.push({ name: 'room' })
           // this is for testing while there is no "next" page
-          this.$router.push("main");
+          // this.$store.dispatch('loginPlayer')
+          
+          this.$router.push("lobby");
         })
         .catch(err => {
           console.log(err.response);

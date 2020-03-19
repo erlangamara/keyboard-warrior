@@ -11,6 +11,7 @@ router.get('/user', controller.getPlayer)
 router.get('/userEnemy',controller.findByRoom)
 router.post('/user/attack/:id', attackAuthorization, controller.attack)
 router.post(`/users/logout`, controller.updateRoomId)
+router.put('/health',controller.refillHealth)
 
 
 
