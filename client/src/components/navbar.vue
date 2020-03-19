@@ -50,6 +50,7 @@ export default {
     right: 0;
     box-shadow: 0 0.1em 0.7em 0.15em rgba(0, 0, 0, 0.7);
     z-index: 1;
+    background-color: rgb(65, 63, 87) !important;
 }
 
 .nav-link:hover {
