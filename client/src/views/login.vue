@@ -65,11 +65,17 @@ export default {
 .submit {
   border: none;
   background-color: rgb(107, 99, 219);
+  box-shadow: 0 0 0 0;
 }
+  .submit:focus, .submit:focus {
+    background-color: rgba(107, 99, 219, 0.575) !important;
+    box-shadow: 0 0 0.3em 0.1em rgba(115, 106, 233, 0.993) !important;
+  }
 
 .submit:hover {
-  background-color: rgba(107, 99, 219, 0.575);
+  background-color: rgba(107, 99, 219, 0.575) !important;
 }
+
 
 .breaker {
   border-top-color: hsla(40, 100%, 97%, 0.35);
