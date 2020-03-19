@@ -10,13 +10,13 @@ const routes = [
     path: '/',
     name: 'login',
     component: login,
-    // beforeEnter(to, from, next) {
-    //   if (!localStorage.token) {
-    //     next();
-    //   } else {
-    //     next({ name: 'lobby' });
-    //   }
-    // }
+    beforeEnter(to, from, next) {
+      if (!localStorage.token) {
+        next();
+      } else {
+        next('main');
+      }
+    }
   },
   {
     path: '/about',

@@ -1,0 +1,23 @@
+body {
+    background-image: url('background.jpg');
+    background-size: cover;
+    background-position: center;
+    backdrop-filter: blur(3px);
+}
+
+.background-theme {
+    background-color: rgb(86, 79, 177) !important;
+}
+
+.background-theme-light {
+    background-color: rgb(107, 99, 219) !important;
+}
+
+.theme-boxshadow {
+    box-shadow: 0 0 0.3em 0.45em rgb(86, 79, 177) !important;
+}
+
+/* untuk html tag "hr" */
+.breaker {
+    border-top-color: hsla(40, 100%, 97%, 0.35) !important;
+}
