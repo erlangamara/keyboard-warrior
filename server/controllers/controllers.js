@@ -39,7 +39,35 @@ class UserController{
     }
 
     static attack(req,res,next){
-        //jadi bikin ini?
+        let dataUser;
+
+        User.findOne({
+            where: {
+                id: req.body.id
+            }
+        })
+            .then(data=>{
+                let hpCalculation = data.hp - req.body.demage
+                let dataAttack = {
+                    hp: hpCalculation,
+                    isAnswer: false
+                }
+
+                dataUser = data
+                dataUser.hp -= req.body.demage
+
+                return User.update(dataAttack, {
+                    where: {
+                        id: req.body.id
+                    }
+                })
+            })
+            .then(()=>{
+                res.status(200).json(dataUser)
+            })
+            .catch(err=>{
+                next(err)
+            })
     }
 }
 

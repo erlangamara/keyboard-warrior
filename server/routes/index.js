@@ -1,9 +1,13 @@
 const express = require('express');
 const router = express.Router();
 const controller = require('../controllers/controllers.js')
+const attackAuthorization = require('../middleware/attackAuthorization')
+const authentication = require('../middleware/authenticate')
 
 router.post('/users/login', controller.login)
 router.get('/randomwords',controller.getWords)
+router.use(authentication)
+router.post('/user/attack/:id', attackAuthorization, controller.attack)
 
 
 
