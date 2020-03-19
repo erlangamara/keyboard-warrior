@@ -1,6 +1,7 @@
 const { User } = require(`../models`)
 const axios = require('axios')
 const jwt = require(`../helper/jsonwebtoken`)
+const createError = require(`http-errors`)
 
 class UserController{
     static login(req, res, next) {
@@ -12,7 +13,16 @@ class UserController{
             }
         })
             .then(data => {
-                if (data && data.roomId === 1) {
+                if (data && data.roomId === 0) {
+                    User.update({
+                        roomId: 1
+                    },
+                    {
+                        where: {
+                            id: data.id
+                        }
+                    })
+
                     return data
                 } else if (!data) {
                     return User.create({
