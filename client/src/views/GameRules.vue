@@ -1,7 +1,7 @@
 <template>
 <div>
-    <div class="row d-flex justify-content-center align-items-justify rulesbox">
-        <div class="box">
+    <div class="d-flex justify-content-center align-items-justify rulesbox">
+        <div class="boxrules">
             <div class="card text-black bg-dark mb-3 " style="max-width: 40rem;">
                 <div class="card-header text-center text-white"><h3>How To Play The Game</h3></div>
                 <div class="card-body text-left text-white">
@@ -33,13 +33,8 @@ export default {
   padding-top: 3em;
   height: 100vh;
 }
-.box {
-  padding: 1em;
+.boxrules {
+  padding-top: 8em;
   width: 50%;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
 }
 </style>
