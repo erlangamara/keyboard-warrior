@@ -1,17 +1,17 @@
 <template>
 <div>
-    <div class="d-flex justify-content-center align-items-justify rulesbox">
+    <div class="d-flex justify-content-center align-items-center rulesbox">
         <div class="boxrules">
             <div class="card text-black bg-dark mb-3 " style="max-width: 40rem;">
                 <div class="card-header text-center text-white"><h3>How To Play The Game</h3></div>
                 <div class="card-body text-left text-white">
                     <ol>
-                        <li>On the login page, pickup the username </li>
-                        <li>Pick the room game. this game has 2 maximum player</li>
-                        <li>On the battle page, you will see a card with a word in it.</li>
-                        <li>Type the word as fast as you can! don't let the enemy defeats you!</li>
-                        <li>The winner is decided by who has the biggest HP in the end of the game!</li>
-                        <li>Have fun and enjoy the game!</li>
+                        <li>Pick a Username</li>
+                        <li>Enter a room and fight against an opponent, each game has a maximum of 2 players</li>
+                        <li>Every round you will be given a word to type</li>
+                        <li>First one to type the word correctly will deal damage to the opponent</li>
+                        <li>Last one standing wins the game</li>
+                        <li>Earn your glory now!</li>
                     </ol>
                 </div>
                 <div class="text-center">
@@ -33,8 +33,8 @@ export default {
   padding-top: 3em;
   height: 100vh;
 }
-.boxrules {
-  padding-top: 8em;
-  width: 50%;
+
+li {
+    margin: 0.7em 0;
 }
 </style>
