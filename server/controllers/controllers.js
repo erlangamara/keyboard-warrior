@@ -8,11 +8,22 @@ class UserController {
     static login(req, res, next) {
         let { name } = req.body
 
-        User.findOne({
+        User.findAll({
             where: {
-                name
+                roomId: 1
             }
         })
+            .then(data => {
+                if (data.length < 2) {
+                    return User.findOne({
+                        where: {
+                            name
+                        }
+                    })
+                } else {
+                    throw createError(400, `Only 2 player is allowed at a time`)
+                }
+            })
             .then(data => {
                 if (data && data.roomId === 0) {
                     User.update({
@@ -113,7 +124,7 @@ class UserController {
             })
             .catch(next)
     }
-    
+
     static findByRoom(req, res, next) {
         User.findAll({ 
             where: { 
