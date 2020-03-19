@@ -48,7 +48,7 @@ export default {
     position: absolute;
     left: 0;
     right: 0;
-    box-shadow: 0 0.1em 0.7em 0.15em;
+    box-shadow: 0 0.1em 0.7em 0.15em rgba(0, 0, 0, 0.7);
     z-index: 1;
 }
 

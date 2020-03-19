@@ -1,5 +1,8 @@
 body {
-    background-color: rgb(145, 18, 177);
+    background-image: url('background.jpg');
+    background-size: cover;
+    background-position: center;
+    backdrop-filter: blur(3px);
 }
 
 .background-theme {
