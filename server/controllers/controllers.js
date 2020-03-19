@@ -19,6 +19,7 @@ class UserController{
                         name,
                         hp: 10, // konfirmasi jumlah hp
                         isAnswer: false,
+                        roomId: 1
                         //gk ad kerjaan jd gw buat dlu
                         // hp nya 10 atau 100?
                         // hp di migration buat default value?
