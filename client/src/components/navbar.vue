@@ -1,15 +1,19 @@
 <template>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark justify-content-between">
+    <div class="d-inline-flex">
       <div class="navbar-brand">Keyboard Warrior</div>
     <!-- <router-link :to="{ name: 'main' }" class="navbar-brand">Keyboard Warrior</router-link> -->
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <router-link to="/rules" class="nav-link">How To Play</router-link>
+          </li>
+        </ul>
+    </div>
 
     <div>
       <ul class="navbar-nav mr-auto">
         <li class="nav-item" v-if="$store.state.token" @click="logout">
           <a class="nav-link" >Logout</a>
-        </li>
-        <li class="nav-item">
-          <router-link to="/rules"><a class="nav-link" >How To Play</a></router-link>
         </li>
       </ul>
     </div>
