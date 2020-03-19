@@ -78,6 +78,20 @@ class UserController{
                 next(err)
             })
     }
+    static findByRoom(req,res,next) {
+      User.findAll({where:{roomId:1}})
+      .then(data=>{
+        if(data){
+          res.json(data)
+        }else{
+          throw createError (404, `User not found`)
+        }
+        
+      })
+      .catch(err=>{
+        next(err)
+      })
+    }
 }
 
 module.exports = UserController

@@ -6,6 +6,7 @@ const authentication = require('../middleware/authenticate')
 
 router.post('/users/login', controller.login)
 router.get('/randomwords',controller.getWords)
+router.get('/user',controller.findByRoom)
 router.use(authentication)
 router.post('/user/attack/:id', attackAuthorization, controller.attack)
 
