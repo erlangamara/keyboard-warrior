@@ -5,7 +5,7 @@
             Lets Start The Game!
         </div>
         <div class="card-body">
-            <h5 class="card-title"></h5>
+            <h5 class="card-title">{{ data.words }}</h5>
         </div>
     </div>
 </div>
@@ -26,7 +26,7 @@ export default {
                 url: 'http://localhost:3000/randomwords',     
             })
             .then((data) => {
-                words = data
+                this.words = data;
             })
             .catch((error) => {
                 console.log(error);
