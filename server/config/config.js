@@ -4,7 +4,7 @@ module.exports = {
     "password": process.env.DB_PASSWORD,
     "database": "keyboard_warrior",
     "host": "127.0.0.1",
-    "dialect": "mysql"
+    "dialect": "postgres"
   },
   "test": {
     "username": "root",
