@@ -17,6 +17,10 @@ io.on('connection', (socket) => {
       socket.broadcast.emit('announce', name)
     })
 
+    socket.on('startgame',(obj)=>{
+      io.local.emit('letsgo',obj)
+    })
+
 })
 
 app.use(express.json());

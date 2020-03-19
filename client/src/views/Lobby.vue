@@ -8,7 +8,7 @@
             
           </div>
           <div>
-            <a class="btn btn-primary" style="color:white" v-if="this.$store.state.totalPlayer.length>0" @click="refillHealth"> Battle </a>
+            <a class="btn btn-primary" style="color:white" v-if="this.$store.state.totalPlayer.length>0" @click="startGameTogether"> Battle </a>
             <a class="btn btn-primary" style="color:white" @click="setData" v-else> CheckOponent </a>
           </div>
         </div>
@@ -28,7 +28,8 @@ export default {
       },
       enemy:{
         name:''
-      }
+      },
+      isTrigger:false
     }
   },
   methods:{
@@ -51,8 +52,14 @@ export default {
         console.log(err)
       })
     },
+    startGameTogether(){
+      let obj={
+        trigger:true
+      }
+      socket.emit('startgame',obj)
+    }
 
- 
+
   },
   created() {
     socket.on('announce', (msg)=>{
@@ -60,5 +67,22 @@ export default {
       this.enemy.name=msg.msg
     })
   },
+  mounted(){
+    socket.on('letsgo',(obj)=>{
+      console.log(obj)
+      this.isTrigger=obj.trigger
+
+    })
+  },
+ watch : {
+        isTrigger() {
+            if(this.isTrigger==true){
+              setTimeout(() => {
+                console.log('oke')
+                this.refillHealth()
+              }, 5000);
+            }
+        }
+    }
 }
 </script>
