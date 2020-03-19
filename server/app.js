@@ -8,7 +8,9 @@ const io = require('socket.io')(http)
 
 io.on('connection', (socket) => {
 // semua event yang mau dilisten disini
-
+    socket.on('attack', (message)=>{
+        socket.broadcast.emit('attacked', message)
+    })
 
 })
 
@@ -24,7 +26,7 @@ app.use('/', route);
 
 app.use(errorHandler)
 
-app.listen(port, ()=>{
+http.listen(port, ()=>{
     console.log(`Listening on port: ${port}`);
 })
 

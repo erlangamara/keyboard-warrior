@@ -2,6 +2,7 @@ const { User } = require(`../models`)
 const axios = require('axios')
 const jwt = require(`../helper/jsonwebtoken`)
 const createError = require(`http-errors`)
+const {Op} = require('sequelize')
 
 class UserController {
     static login(req, res, next) {
@@ -114,8 +115,15 @@ class UserController {
     }
     
     static findByRoom(req, res, next) {
-        User.findAll({ where: { roomId: 1 } })
-            .then(data => {
+        User.findAll({ 
+            where: { 
+                roomId: 1,
+                id: {
+                    [Op.not]: req.user.id
+                }
+            } 
+        })
+        .then(data => {
                 if (data) {
                     res.json(data)
                 } else {
@@ -124,6 +132,20 @@ class UserController {
 
             })
             .catch(err => {
+                next(err)
+            })
+    }
+
+    static getPlayer(req, res, next){
+        User.findOne({
+            where: {
+                id: req.user.id
+            }
+        })
+            .then(data=>{
+                res.status(200).json(data)
+            })
+            .catch(err=>{
                 next(err)
             })
     }
