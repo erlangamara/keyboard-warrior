@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 // import Home from '../views/Home.vue'
 import login from '../views/login'
+import GameRules from '../views/GameRules.vue'
 
 Vue.use(VueRouter)
 
@@ -25,7 +26,19 @@ const routes = [
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
-  }
+  },
+  {
+    path: '/rules',
+    name: 'GameRules',
+    component: GameRules,
+    // beforeEnter(to, from, next) {
+    //   if (!localStorage.token) {
+    //     next();
+    //   } else {
+    //     next({ name: 'lobby' });
+    //   }
+    // }
+  },
 ]
 
 const router = new VueRouter({
