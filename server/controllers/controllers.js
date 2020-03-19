@@ -1,6 +1,7 @@
 const { User } = require(`../models`)
 const axios = require('axios')
 const jwt = require(`../helper/jsonwebtoken`)
+const createError = require(`http-errors`)
 
 class UserController{
     static login(req, res, next) {
@@ -12,14 +13,26 @@ class UserController{
             }
         })
             .then(data => {
-                if (data) {
+                if (data && data.roomId === 0) {
+                    User.update({
+                        roomId: 1
+                    },
+                    {
+                        where: {
+                            id: data.id
+                        }
+                    })
+
                     return data
-                } else {
+                } else if (!data) {
                     return User.create({
                         name,
                         hp: 100,
                         isAnswer: false,
+                        roomId: 1
                     })
+                } else {
+                    throw createError(403, `Username is under use`)
                 }
             })
             .then(data => {

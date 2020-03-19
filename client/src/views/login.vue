@@ -30,7 +30,7 @@ export default {
             baseURL: this.$store.state.url,
             method: 'post',
             data: {
-                name
+                name: this.name
             }
         })
         .then(({ data }) => {
