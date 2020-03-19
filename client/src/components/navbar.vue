@@ -8,6 +8,9 @@
         <li class="nav-item" v-if="$store.state.token" @click="logout">
           <a class="nav-link" >Logout</a>
         </li>
+        <li class="nav-item">
+          <router-link to="/rules"><a class="nav-link" >How To Play</a></router-link>
+        </li>
       </ul>
     </div>
   </nav>
