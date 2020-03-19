@@ -17,11 +17,8 @@ class UserController{
                 } else {
                     return User.create({
                         name,
-                        hp: 10, // konfirmasi jumlah hp
+                        hp: 100,
                         isAnswer: false,
-                        //gk ad kerjaan jd gw buat dlu
-                        // hp nya 10 atau 100?
-                        // hp di migration buat default value?
                     })
                 }
             })

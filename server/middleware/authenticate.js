@@ -1,5 +1,5 @@
-const jwt = require(`../helpers/jwt`)
-const createError = require(`../helpers/createErrors`)
+const jwt = require(`../helper/jsonwebtoken`)
+const createError = require(`http-errors`)
 const { User } = require(`../models`)
 
 module.exports = (req, res, next) => {

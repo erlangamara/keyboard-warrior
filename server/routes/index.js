@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const controller = require('../controllers/controllers.js')
 
-router.post('/user/login',)
+router.post('/users/login', controller.login)
 router.get('/randomwords',controller.getWords)
 
 
