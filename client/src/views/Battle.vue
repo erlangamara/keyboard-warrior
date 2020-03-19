@@ -9,6 +9,7 @@
                         <h5 class="card-title">{{playerName}}</h5>
                         <p class="card-text">{{playerHp}}</p>
                     </div>
+                        <img :src="greenSlime">
                 </div>
 
                  <div class="card" style="width: 18rem;">
@@ -18,6 +19,7 @@
                             {{enemyHp}}
                         </p>
                     </div>
+                    <img :src="redSlime">
                 </div>
             </div>
         </div>
@@ -55,6 +57,10 @@ export default {
     watch : {
         playerHp() {
             this.checkPlayerHp()
+            this.greenSlime='https://s5.gifyu.com/images/slime-green-hit.gif',
+            setTimeout(() => {
+              this.greenSlime='https://s5.gifyu.com/images/slime-green-normal.gif'
+            }, 900);
         }
     },
     mounted(){
@@ -62,7 +68,12 @@ export default {
     },
     data(){
         return{
-            answer: null
+            answer: null,
+            greenSlime:'https://s5.gifyu.com/images/slime-green-normal.gif',
+            greenSlimeHurt:'https://s5.gifyu.com/images/slime-green-hit.gif',
+            redSlime:'https://s5.gifyu.com/images/slime-red-normal.gif',
+            redSlimeHurt:'https://s5.gifyu.com/images/slime-red-hit.gif'
+
         }
     },
     created(){
@@ -138,7 +149,10 @@ export default {
                         this.$store.dispatch('getDataEnemy');
                         this.$store.dispatch('getDataPlayer');
                         this.$store.dispatch('getWord');
-
+                        this.redSlime='https://s5.gifyu.com/images/slime-red-hit.gif'
+                        setTimeout(() => {
+                          this.redSlime='https://s5.gifyu.com/images/slime-red-normal.gif'
+                        }, 900);
                         socket.emit('attack', this.enemyHp - 20)
                     }
                 })
