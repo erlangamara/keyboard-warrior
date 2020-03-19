@@ -5,33 +5,28 @@
             Lets Start The Game!
         </div>
         <div class="card-body">
-            <h5 class="card-title">{{ data.words }}</h5>
+            <h5 class="card-title">{{ word }}</h5>
         </div>
     </div>
 </div>
 </template>
 <script>
-import axios from 'axios'
+import { mapState } from 'vuex'
+
 export default {
     name: 'WordCard',
     data() {
         return{
-            words = null,
+            words : null,
         }
     },
+    created(){
+        this.$store.dispatch('getWord');
+    },
+    computed: mapState([
+        'word'
+    ]),
     methods: {
-        getWords(){
-            axios({
-                method: 'GET',
-                url: 'http://localhost:3000/randomwords',     
-            })
-            .then((data) => {
-                this.words = data;
-            })
-            .catch((error) => {
-                console.log(error);
-            })
-        }
     },
 }
 </script>

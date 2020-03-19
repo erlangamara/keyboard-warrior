@@ -2,7 +2,11 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 // import Home from '../views/Home.vue'
 import login from '../views/login'
+
+import battle from '../views/Battle.vue'
+import lobby from '../views/Lobby.vue'
 import GameRules from '../views/GameRules.vue'
+
 
 Vue.use(VueRouter)
 
@@ -20,6 +24,11 @@ const routes = [
     }
   },
   {
+    path: '/battle',
+    name: 'battle',
+    component: battle
+  },
+  {
     path: '/about',
     name: 'About',
     // route level code-splitting
@@ -27,6 +36,13 @@ const routes = [
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
   },
+  {
+
+    path: '/lobby',
+    name: 'lobby',
+    component:lobby
+  },
+
   {
     path: '/rules',
     name: 'GameRules',
@@ -39,6 +55,7 @@ const routes = [
     //   }
     // }
   },
+
 ]
 
 const router = new VueRouter({
