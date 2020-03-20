@@ -11,6 +11,9 @@
             <a class="btn btn-primary" style="color:white" v-if="this.$store.state.totalPlayer.length>0" @click="startGameTogether"> Battle </a>
             <a class="btn btn-primary" style="color:white" @click="setData" v-else> CheckOponent </a>
           </div>
+          <div>
+              <button @click="howToPlay" class="btn btn-info mt-2">How to play</button>
+          </div>
         </div>
     </div>
 </template>
@@ -39,6 +42,7 @@ export default {
       socket.emit('notify enemy', {msg:`challanger ${this.player.name} is ready` } )
       // console.log(this.$store.state.totalPlayer)
     },
+
     refillHealth(){
       axios({
         method:'put',
@@ -52,13 +56,17 @@ export default {
         console.log(err)
       })
     },
+
     startGameTogether(){
       let obj={
         trigger:true
       }
       socket.emit('startgame',obj)
-    }
+    },
 
+    howToPlay(){
+        this.$router.push('/rules')
+    }
 
   },
   created() {

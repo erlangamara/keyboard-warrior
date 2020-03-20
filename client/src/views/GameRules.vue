@@ -15,7 +15,7 @@
                     </ol>
                 </div>
                 <div class="text-center">
-                    <router-link to="/"><button type="button" class="btn btn-warning">Play Now!</button></router-link>
+                    <router-link to="/lobby"><button type="button" class="btn btn-warning">Back</button></router-link>
                     <br><br>
                 </div>
             </div>
