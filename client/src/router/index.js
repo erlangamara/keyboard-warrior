@@ -19,7 +19,7 @@ const routes = [
       if (!localStorage.token) {
         next();
       } else {
-        next('main');
+        next('lobby');
       }
     }
   },

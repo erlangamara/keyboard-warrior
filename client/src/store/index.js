@@ -15,7 +15,7 @@ export default new Vuex.Store({
     enemyName: null,
     enemyHp: null,
     totalPlayer: [],
-    word: null
+    word: null,
   },
   mutations: {
     dataEnemy(state, data){
@@ -42,7 +42,13 @@ export default new Vuex.Store({
       console.log(data)
       state.playerHp = data
       console.log(state.playerHp)
+    },
+
+    emptyPlayer(state){
+      state.totalPlayer=[]
     }
+
+
   },
   actions: {
     getDataEnemy(context){
@@ -91,7 +97,13 @@ export default new Vuex.Store({
 
     editHealthPlayer(context, data){
       context.commit('editHealth', data);
+    },
+
+    logout(context){
+      context.commit('emptyPlayer')
     }
+
+
 
   },
   modules: {

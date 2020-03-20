@@ -12,6 +12,15 @@ io.on('connection', (socket) => {
         socket.broadcast.emit('attacked', message)
     })
 
+    socket.on('notify enemy',(name)=>{
+      console.log('player read :',name)
+      socket.broadcast.emit('announce', name)
+    })
+
+    socket.on('startgame',(obj)=>{
+      io.local.emit('letsgo',obj)
+    })
+
 })
 
 app.use(express.json());

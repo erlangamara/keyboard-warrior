@@ -41,6 +41,8 @@ export default {
             .then(() => {
                 this.$store.state.token = localStorage.removeItem('token')
                 this.$router.push({ name: 'login' })
+                this.$store.dispatch('logout')
+                
             })
             .catch(err => {
                 console.log(err.response)

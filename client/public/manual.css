@@ -1,0 +1,21 @@
+.manual-container-lobby{
+  padding-top: 60pt;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.manual-container-sub-lobby{
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.lobby-btn{
+  background: linear-gradient(rgb(110, 60, 248));
+  color:white;
+  padding-top: 10px;
+  height: 100px;
+  width:300px
+}
