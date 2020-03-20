@@ -15,6 +15,7 @@
 </template>
 <script>
 import axios from "axios";
+import Swal from 'sweetalert2';
 
 export default {
   data() {
@@ -44,6 +45,11 @@ export default {
           this.$router.push("lobby");
         })
         .catch(err => {
+          Swal.fire({
+            icon: 'error',
+            title: `${err.response.data.status_message}`,
+            text: 'Please wait for another player to logout'
+          })
           console.log(err.response);
         });
     }
